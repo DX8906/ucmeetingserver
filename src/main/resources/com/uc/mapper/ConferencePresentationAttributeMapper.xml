@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.uc.mapper.ConferencePresentationAttributeMapper">
+    <update id="update">
+        update conference_presentation_attribute
+        <set>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="quantityPerPage != null">
+                quantity_per_page = #{quantityPerPage},
+            </if>
+            <if test="refreshInterval != null">
+                refresh_interval = #{refreshInterval},
+            </if>
+            <if test="rollingInterval != null">
+                rolling_interval = #{rollingInterval},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime}
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+</mapper>
